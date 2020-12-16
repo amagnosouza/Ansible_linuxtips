@@ -1,0 +1,6 @@
+# instalar cmatrix pedindo senha root
+ansible -i hosts robot-01 -m apt -a "name=cmatrix state=present" -u ubuntu -b -K
+# uptime do host
+ansible -i hosts robot-01 -m shell -a uptime -u ubuntu
+ansible -i hosts robot-01 -m copy -a src=arquivo_teste dest=/tmp -u ubuntu
+ansible -i hosts robot-01 -m git -a repo=https://github.com/badtuxx/giropops-monitoring.git dest=/home/ubuntu/giropops -u ubuntu

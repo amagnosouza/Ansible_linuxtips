@@ -1,0 +1,31 @@
+---
+- hosts: webservers
+  become: yes
+  remote_user: ubuntu
+  tasks:
+  - name: Instalando Nginx
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+
+  - name: Start nginx boot
+    service:
+      name: nginx
+      enabled: yes
+
+  - name: Start service nginx
+    service:
+      name: nginx
+      state: started
+
+  - name: Copia HTML
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+
+  handlers:
+  - name: Restart Nginx
+    service:
+      name: nginx
+      state: restarted
