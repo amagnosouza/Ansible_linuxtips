@@ -1,0 +1,16 @@
+---
+# vars file for criando-instancias
+# tipo de instancia
+instance_type: t2.micro
+# Grupo de segurança
+sec_group_name: teste_ansible
+# ubuntu 20.04
+image: ami-042e8287309f5df03
+# keypair - talvez seja a staging.pem //VERIFICAR ansible-class
+keypair: staging
+# regiao
+region: us-east-1
+# qtd de maquinas
+count: 3
+# profile - perfil das credenciais
+profile: alexandre.magno

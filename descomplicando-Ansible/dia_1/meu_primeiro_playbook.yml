@@ -1,0 +1,53 @@
+---
+- hosts: webserver
+  become: yes
+  remote_user: ubuntu
+  gather_facts: no
+  pre_tasks:
+  - name: 'Atualizando a maquineta'
+    apt:
+      update_cache: yes
+      upgrade: full
+
+  tasks:
+  - name: 'Instalar Python'
+    apt: 
+      name: python
+      state: latest
+
+  - name: Instalando o Nginx
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+
+  - name: Habilitando o Nginx no boot
+    service:
+      name: nginx
+      enabled: yes
+
+  - name: Iniciando o Nginx
+    service:
+      name: nginx
+      state: started
+
+  - name: Copiando html personalizado
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+
+  - name: Copiando nginx.conf
+    copy:
+      src: nginx.conf
+      dest: /etc/nginx/nginx.conf
+    notify: Restartando o Nginx
+
+  - name: Restart maquineta
+    raw: 'sudo shutdown -r now'
+
+
+  handlers:
+  - name: Restartando o Nginx
+    service:
+      name: nginx
+      state: restarted

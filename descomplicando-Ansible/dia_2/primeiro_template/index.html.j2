@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DESCOMPLICANDO O ANSIBLE</title>
+    <style type="text/css">
+        p {color:rgb(0, 0, 0); font-size: 12px;}
+    </style>
+</head>
+<body>
+    <h1>GIROPOPS STRIGUS GIRUS</h1>
+    <p>Em ritmo de festa que balança o coração</p>
+    <p>Esse é meu IP: {{ ansible_facts.enp0s3.ipv4.address }}</p>
+    <p>Essa é a distribuição: {{ ansible_distribution }} versão: {{ ansible_distribution_version }}</p>
+</body>
+</html>
