@@ -13,7 +13,7 @@ Projeto de instalação de um cluster Kubernetes + AWS.
 
 ```
 
-### Fases do projeto
+### Executando os playbooks
 
 ```
 
