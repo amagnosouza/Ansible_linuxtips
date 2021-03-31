@@ -9,6 +9,7 @@ Projeto de instalação de um cluster Kubernetes + AWS.
  - Provisioning => Criar as instâncias/VMs para o cluster.
  - Install_k8s => Criação do cluster, etc.
  - Install helm => Prometheus e outros.
+ - Deploy da app-v1 e app-v2
  
 
 ```
