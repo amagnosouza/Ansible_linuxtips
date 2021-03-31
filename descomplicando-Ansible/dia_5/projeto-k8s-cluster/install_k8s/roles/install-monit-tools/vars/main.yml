@@ -1,0 +1,5 @@
+---
+# vars file for install-monit-tools
+# Old Location -> url_repo_helm: https://kubernetes-charts.storage.googleapis.com
+new_repo_helm: https://charts.helm.sh/stable
+deploy_prometheus: "--set prometheusOperator.createCustomResource=false testando-prometheus stable/prometheus-operator"
